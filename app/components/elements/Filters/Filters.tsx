@@ -4,45 +4,57 @@ import styles from './Filter.module.scss'
 import { IPlace } from '../../../types/place'
 import { TypeSetState } from '../../../types/common'
 
-const cities = [
+const countries = [
     {
-        location: 'Paris'
+        location: 'France'
     },
     {
-        location: 'Bora Bora'
+        location: 'Japan'
     },
     {
-        location: 'Maui'
+        location: 'Italy'
     },
     {
-        location: 'Tahiti'
+        location: 'Norway'
     },
     {
         location: 'Brazil'
     },
     {
-        location: 'Norway'
+        location: 'USA'
     },
 ]
 
 interface IFilters {
     setPlaces: TypeSetState<IPlace[]>
+    initialPlaces: IPlace[]
 }
 
 
-const Filter: FC<IFilters> = () => {
+const Filter: FC<IFilters> = ({ setPlaces, initialPlaces }) => {
+
     const [filter, setFilter] = useState('')
+    const handleFilter = (location: string) => {
+        if (filter === location) {
+            setPlaces(initialPlaces)
+            setFilter('')
+        } else {
+            setPlaces(initialPlaces.filter(place => place.location.country.toLowerCase() === location.toLowerCase()))
+            setFilter(location)
+        }
+    }
+
     return (
         <div className={styles.wrapper}>
-            {cities.map(city =>
+            {countries.map(country =>
                 <button
-                    onClick={() => setFilter(city.location)}
-                    key={city.location}
+                    onClick={() => handleFilter(country.location)}
+                    key={country.location}
                     className={cn({
-                        [styles.active]: city.location === filter
+                        [styles.active]: country.location === filter
                     })}
                 >
-                    {city.location}
+                    {country.location}
                 </button>
             )}
         </div>
