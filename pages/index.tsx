@@ -1,13 +1,37 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Footer from '../app/components/common/footer/Footer'
+import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Layout from '../app/components/common/Layout'
-import styles from '../assets/styles/Home.module.css'
+import { IPlace } from '../app/types/place'
+import HeadingSection from '../app/components/elements/Home/HeadingSection/HeadingSection'
+import Search from '../app/components/elements/Search/Search'
+import Filters from '../app/components/elements/Filters/Filters'
+import { API_URL } from '../app/constans'
+import PopularPlaces from '../app/components/elements/Home/PopularPlaces/PopularPlaces'
+interface IHome {
+  places: IPlace[]
+}
 
-export default function Home() {
+const Home: NextPage<IHome> = ({ places }) => {
   return (
     <Layout>
-      Home page
+      <HeadingSection />
+      <div style={{ width: '80%', margin: '0 auto' }}>
+        <Search />
+        <Filters />
+        <PopularPlaces places={places} />
+      </div>
     </Layout>
   )
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const result = await fetch(`${API_URL}/places`)
+  const places = await result.json()
+
+  return {
+    props: {
+      places
+    }
+  }
+}
+
+export default Home;
