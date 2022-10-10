@@ -1,6 +1,8 @@
 import { FC, useState } from 'react'
 import cn from 'classnames'
 import styles from './Filter.module.scss'
+import { IPlace } from '../../../types/place'
+import { TypeSetState } from '../../../types/common'
 
 const cities = [
     {
@@ -23,8 +25,12 @@ const cities = [
     },
 ]
 
+interface IFilters {
+    setPlaces: TypeSetState<IPlace[]>
+}
 
-const Filter: FC = () => {
+
+const Filter: FC<IFilters> = () => {
     const [filter, setFilter] = useState('')
     return (
         <div className={styles.wrapper}>

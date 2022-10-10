@@ -46,4 +46,11 @@
             color: $white
         }
     }
+
+    >.notFound {
+        margin-top: -2rem;
+        color: #e8e8e8;
+        font-weight: bold;
+        opacity: 0.8;
+    }
 }
