@@ -1,7 +1,12 @@
 import { useRouter } from 'next/dist/client/router'
 import styles from './Footer.module.scss'
 
-const navItems = [
+type TypeNavItem = {
+  icon: string,
+  link: string
+}
+
+const navItems: TypeNavItem[] = [
   {
     icon: 'home',
     link: '/'
@@ -12,7 +17,7 @@ const navItems = [
   },
   {
     icon: 'place',
-    link: '/place'
+    link: '/place/kyoto'
   },
   {
     icon: 'person_outline',
@@ -29,7 +34,7 @@ const Footer = () => {
         navItems.map((item) =>
           <button
             className={pathname === item.link ? styles.active : ''}
-            onClick={() => push(item, link)}
+            onClick={() => push(item.link)}
             key={item.icon}
           >
             <span className='material-icons-outlined'>{item.icon}</span>
