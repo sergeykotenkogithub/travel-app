@@ -3,13 +3,14 @@ import Footer from './footer/Footer'
 
 type Props = {
     children: ReactNode;
+    isMaxWidth?: boolean
 }
 
-const Layout: FC<Props> = props => {
+const Layout: FC<Props> = ({ children, isMaxWidth = true }) => {
     return (
         <div>
-            <div style={{ maxWidth: 480, margin: '0 auto' }}>
-                {props.children}
+            <div style={{ maxWidth: isMaxWidth && 480, margin: '0 auto' }}>
+                {children}
             </div>
             <Footer />
         </div>

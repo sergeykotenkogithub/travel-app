@@ -17,11 +17,11 @@ const data: IFav[] = [
     },
     {
         name: 'Japan, Japan',
-        slug: 'tokyo'
+        slug: 'tokyo-1'
     },
     {
         name: 'Italy, Italy',
-        slug: 'venezia'
+        slug: 'venezia-1'
     },
 ]
 
