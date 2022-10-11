@@ -5,14 +5,14 @@ import {
     Geography,
     ZoomableGroup,
 } from 'react-simple-maps'
-// import { TypeLocation } from '@/types/place'
+import { TypeLocation } from '@/types/place'
 
 import styles from './Information.module.scss'
 
 const geoUrl =
     "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-const Map: FC<{ location }> = ({ location }) => {
+const Map: FC<{ location: TypeLocation }> = ({ location }) => {
     return (
         <div className={styles.map}>
             <ComposableMap
