@@ -9,3 +9,13 @@ $white: #e8e8e8;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
+
+@keyframes opac {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

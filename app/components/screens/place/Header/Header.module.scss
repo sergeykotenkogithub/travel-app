@@ -7,15 +7,16 @@
     width: 80%;
     padding: 2rem 0;
     margin: 0 auto;
+    padding-bottom: 80px;
 
     .buttonWrapper {
         border-radius: 50%;
         width: 60px;
         height: 60px;
-        background-color: rgba(255, 255, 255, 0.05);
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        @include glassEffect;
     }
 
     .bookmark {
@@ -23,7 +24,7 @@
 
         >ul {
             position: absolute;
-            background-color: #222223;
+            @include glassEffect;
             border-radius: 15px;
             padding: 1rem 0;
             z-index: 2;
@@ -31,6 +32,7 @@
             right: 0;
             width: max-content;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+            animation: opac .4s;
 
             >li {
                 a {
@@ -38,12 +40,14 @@
                     color: $white;
                     display: block;
                     padding: 0.5rem 2rem;
-                    transition: background-color .4e ease-in-out;
+                    transition: color .2s ease-in-out;
+
+                    &:hover {
+                        color: $accent;
+                    }
                 }
 
-                &:hover {
-                    background-color: #1c1c1e;
-                }
+
             }
         }
     }
