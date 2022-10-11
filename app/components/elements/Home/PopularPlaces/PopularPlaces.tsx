@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { FC } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { IPlace } from '../../../../types/place'
+import { IPlace } from '@/types/place'
 import styles from './PopularPlaces.module.scss'
 import 'react-loading-skeleton/dist/skeleton.css'
 

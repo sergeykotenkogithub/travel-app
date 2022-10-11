@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { API_URL } from '../../app/constants'
-import { IPlace } from '../../app/types/place'
-import Place from '../../app/components/screens/place/Place'
+import { IPlace } from '@/types/place'
+import Place from '@/screens/place/Place'
 
 interface IPlacePage {
     place: IPlace

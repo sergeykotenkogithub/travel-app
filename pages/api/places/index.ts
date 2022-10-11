@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { IPlace } from '../../../app/types/place'
+import { IPlace } from '@/types/place'
 
 export const places: IPlace[] = [
     {
