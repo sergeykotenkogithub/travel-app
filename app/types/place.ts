@@ -14,3 +14,7 @@ export interface IPlace {
     mapImage: string
 }
 
+export interface IFav {
+    slug: string
+    name: string
+}

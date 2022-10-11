@@ -5,7 +5,7 @@
   "testLibrary": "None",
   "component": {
     "default": {
-      "path": "app/components",
+      "path": "app/components/screens/place/",
       "withStyle": true,
       "withTest": false,
       "withStory": false,

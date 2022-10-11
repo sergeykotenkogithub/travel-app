@@ -12,6 +12,8 @@
     outline: none;
     padding: 7px 7px 7px 20px;
     transition: background-color .4s ease-in-out, box-shadow .4s ease-in-out;
+    margin: 0 auto;
+    margin-top: 50px;
 
     &:hover {
         background-color: lighten($accent, 4%);
