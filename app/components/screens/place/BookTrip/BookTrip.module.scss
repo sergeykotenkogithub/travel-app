@@ -1,0 +1,35 @@
+// styles
+@import '../../../../../assets/styles/_variables';
+
+.button {
+    font-size: 16px;
+    background-color: $accent;
+    border-radius: 30px;
+    box-shadow: 0 3px 6px rgba($accent, 0.25);
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    padding: 7px 7px 7px 20px;
+    transition: background-color .4s ease-in-out, box-shadow .4s ease-in-out;
+
+    &:hover {
+        background-color: lighten($accent, 4%);
+        box-shadow: 0 3px 6px($accent, .6);
+    }
+
+    .text {
+        color: $white;
+        margin-right: 20px;
+    }
+
+    .icon {
+        background-color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

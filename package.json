@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "component":  "generate-react component"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -14,6 +15,7 @@
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
     "react-loading-skeleton": "^3.1.0",
     "sass": "^1.55.0"
   },
@@ -22,6 +24,7 @@
     "@types/react": "^18.0.21",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
+    "generate-react-cli": "^7.4.0",
     "typescript": "^4.8.4"
   }
 }
