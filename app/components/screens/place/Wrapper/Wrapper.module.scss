@@ -5,6 +5,18 @@
     background-position: top center;
     background-size: 100% 50%;
 
+    @media screen and (min-width: 700px) {
+        background-size: 80% 50%;
+    }
+
+    @media screen and (min-width: 950px) {
+        background-size: 70% 50%;
+    }
+
+    @media screen and (min-width: 1150px) {
+        background-size: 50% 50%;
+    }
+
 
     &::before {
         content: '';

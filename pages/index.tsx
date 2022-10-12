@@ -7,6 +7,7 @@ import Filters from '@/elements/Filters/Filters'
 import { API_URL } from '../app/constants'
 import PopularPlaces from '@/elements/Home/PopularPlaces/PopularPlaces'
 import { useState } from 'react'
+import Meta from 'utils/Meta'
 interface IHome {
   initialPlaces: IPlace[]
 }
@@ -18,6 +19,7 @@ const Home: NextPage<IHome> = ({ initialPlaces }) => {
 
   return (
     <Layout>
+      <Meta title="Book your future trip" description='Best routes for travelling' />
       <HeadingSection />
       <div style={{ width: '80%', margin: '0 auto' }}>
         <Search

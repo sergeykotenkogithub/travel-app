@@ -20,7 +20,6 @@
     "jsx": "preserve",
     "baseUrl": "./app/",
     "paths": {
-
       "@/components/*": [
         "components/*"
       ],
@@ -33,13 +32,15 @@
       "@/elements/*": [
         "components/elements/*"
       ],
-
       "@/types/*": [
         "types/*"
       ],
       "@/assets/*": [
         "../assets/*"
       ],
+      "@lib": [
+        "./lib/*"
+      ]
     }
   },
   "include": [
