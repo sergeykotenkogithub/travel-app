@@ -4,6 +4,7 @@ import Skeleton from 'react-loading-skeleton'
 import { IPlace } from '@/types/place'
 import styles from './PopularPlaces.module.scss'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { urlFor } from 'sanity'
 
 interface IPoppularPlaces {
     places: IPlace[]
@@ -28,7 +29,7 @@ const PopularPlaces: FC<IPoppularPlaces> = ({ places, isLoading }) => {
                         <Link href={`/place/${place.slug}`} key={place._id}>
                             <a
                                 className={styles.item}
-                                style={{ backgroundImage: `url(${place.imagePath})` }}
+                                style={{ backgroundImage: `url(${urlFor(place.imagePath).url()})` }}
                             >
                                 <div className={styles.heading}>
                                     {`${place.location.city}, ${place.location.country}`}

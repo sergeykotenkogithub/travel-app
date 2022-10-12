@@ -8,6 +8,10 @@ import { API_URL } from '../app/constants'
 import PopularPlaces from '@/elements/Home/PopularPlaces/PopularPlaces'
 import { useState } from 'react'
 import Meta from 'utils/Meta'
+import { sanityClient } from 'sanity'
+
+const placeQuery = `*[_type == "place" ]`
+
 interface IHome {
   initialPlaces: IPlace[]
 }
@@ -35,12 +39,11 @@ const Home: NextPage<IHome> = ({ initialPlaces }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const result = await fetch(`${API_URL}/places`)
-  const initialPlaces = await result.json()
+  const result = await sanityClient.fetch(placeQuery)
 
   return {
     props: {
-      initialPlaces
+      initialPlaces: result
     }
   }
 }
