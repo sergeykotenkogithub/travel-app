@@ -8,13 +8,12 @@ type Props = {
 }
 
 const Layout: FC<Props> = ({ children, isMaxWidth = true }) => {
-    const { data } = useSession()
     return (
         <div>
             <div style={{ maxWidth: isMaxWidth && 480, margin: '0 auto' }}>
                 {children}
             </div>
-            {!!data && <Footer />}
+            <Footer />
         </div>
     )
 }

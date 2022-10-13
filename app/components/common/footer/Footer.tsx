@@ -1,5 +1,6 @@
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
 import styles from './Footer.module.scss'
 
 type TypeNavItem = {
@@ -31,10 +32,12 @@ const Footer = () => {
   const { push, pathname } = useRouter()
   const { data } = useSession()
 
+  if (pathname === '/auth') return null
+
   return (
     <footer className={styles.footer}>
       <nav>
-        {navItems.map(item => (
+        {data ? navItems.map(item => (
           <button
             className={pathname === item.link ? styles.active : ''}
             onClick={() => {
@@ -46,7 +49,17 @@ const Footer = () => {
               {item.link === '/auth' && data ? 'logout' : item.icon}
             </span>
           </button>
-        ))}
+        )) :
+
+          (<Link href='/auth'>
+            <a className={styles['go-to-login']}>
+              Go to login
+            </a>
+          </Link>)
+
+        }
+
+
       </nav>
     </footer>
   )
