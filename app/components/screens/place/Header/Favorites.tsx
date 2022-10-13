@@ -38,10 +38,10 @@ const Favorites: FC = () => {
             {
                 isOpen &&
                 <ul>
-                    {data.map(item =>
-                        <li key={item.slug}>
-                            <Link href={`/place${item.slug}`}>
-                                <a>{item.name}</a>
+                    {data.map(fav =>
+                        <li key={fav.slug}>
+                            <Link href={`/place${fav.slug}`}>
+                                <a>{fav.name}</a>
                             </Link>
                         </li>
                     )}

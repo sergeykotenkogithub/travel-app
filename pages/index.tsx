@@ -4,14 +4,11 @@ import { IPlace } from '@/types/place'
 import HeadingSection from '@/elements/Home/HeadingSection/HeadingSection'
 import Search from '@/elements/Search/Search'
 import Filters from '@/elements/Filters/Filters'
-import { API_URL } from '../app/constants'
 import PopularPlaces from '@/elements/Home/PopularPlaces/PopularPlaces'
 import { useState } from 'react'
 import Meta from 'utils/Meta'
-import { sanityClient } from 'sanity'
-
-const placeQuery = `*[_type == "place" ]`
-
+import { sanityClient } from '../app/sanity'
+import { queries } from 'queries'
 interface IHome {
   initialPlaces: IPlace[]
 }
@@ -39,7 +36,7 @@ const Home: NextPage<IHome> = ({ initialPlaces }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const result = await sanityClient.fetch(placeQuery)
+  const result = await sanityClient.fetch(queries.getPlaces)
 
   return {
     props: {
