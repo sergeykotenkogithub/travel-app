@@ -1,3 +1,4 @@
+import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/dist/client/router'
 import styles from './Footer.module.scss'
 
@@ -27,23 +28,27 @@ const navItems: TypeNavItem[] = [
 ]
 
 const Footer = () => {
-  const { push, asPath, pathname } = useRouter();
-  return <footer className={styles.footer}>
-    <nav>
-      {
-        navItems.map((item) =>
+  const { push, pathname } = useRouter()
+  const { data } = useSession()
+
+  return (
+    <footer className={styles.footer}>
+      <nav>
+        {navItems.map(item => (
           <button
             className={pathname === item.link ? styles.active : ''}
-            onClick={() => push(item.link)}
+            onClick={() => {
+              item.link === '/auth' && data ? signOut() : push(item.link)
+            }}
             key={item.icon}
           >
-            <span className='material-icons-outlined'>{item.icon}</span>
+            <span className="material-icons-outlined">
+              {item.link === '/auth' && data ? 'logout' : item.icon}
+            </span>
           </button>
-        )
-      }
-    </nav>
-  </footer>
-
+        ))}
+      </nav>
+    </footer>
+  )
 }
-
 export default Footer
