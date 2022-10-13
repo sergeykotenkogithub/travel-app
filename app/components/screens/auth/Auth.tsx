@@ -1,13 +1,17 @@
 import Layout from '@/components/common/Layout'
-import React from 'react'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { AiFillSecurityScan } from 'react-icons/ai'
+import { CgProfile } from 'react-icons/cg'
 import { IAuthFields } from './auth.interface'
-import styles from './Auth.module.scss';
-import stylesButtom from '../place/BookTrip/BookTrip.module.scss'
+
+import styles from './Auth.module.scss'
+import stylesButton from '../place/BookTrip/BookTrip.module.scss'
+import { signUp } from 'next-auth-sanity/client'
+import { signIn } from 'next-auth/react'
+import { toast } from 'react-toastify'
 
 const Auth: FC = () => {
+    const [typeForm, setTypeForm] = useState<'login' | 'register'>('login')
 
     const {
         handleSubmit,
@@ -17,13 +21,27 @@ const Auth: FC = () => {
         mode: 'onChange'
     })
 
-    const onSubmit: SubmitHandler<IAuthFields> = (data) => {
+    const isReg = typeForm === 'register'
 
+    const onSubmit: SubmitHandler<IAuthFields> = async data => {
+        console.log(data)
+        if (isReg) {
+            const response = await signUp(data)
+            console.log(response)
+            // @ts-ignore
+            if (response.error) toast.error(response.error)
+        } else {
+            const response = await signIn('sanity-login', {
+                redirect: false,
+                ...data
+            })
+            if (response.error) toast.error("Incorrect login or password entered")
+        }
     }
 
     return (
         <Layout>
-            <h1 className={styles.h1}>Auth/register </h1>
+            <h1 className={styles.h1}>Auth/{isReg ? 'Register' : 'login'}</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.wrapper}>
                     <input
@@ -32,7 +50,7 @@ const Auth: FC = () => {
                         placeholder="E-mail"
                         className={styles.input}
                     />
-                    {errors.email && <div className={styles.error}>{`${errors.email}`}</div>}
+                    {/* {errors.email && <div className={styles.error}>{errors.email}</div>} */}
                 </div>
                 <div className={styles.wrapper}>
                     <input
@@ -41,12 +59,23 @@ const Auth: FC = () => {
                         placeholder="Password"
                         className={styles.input}
                     />
-                    {errors.password && <div className={styles.error}>{`${errors.password}`}</div>}
+                    {/* {errors.password && (
+                        <div className={styles.error}>{errors.password}</div>
+                    )} */}
                 </div>
-                <button className={stylesButtom.button}>
-                    <span className={stylesButtom.text}>Auth</span>
-                    <span className={stylesButtom.icon}><AiFillSecurityScan size={19} /></span>
+                <button className={stylesButton.button}>
+                    <span className={stylesButton.text}>
+                        {isReg ? 'Register' : 'Login'}
+                    </span>
+                    <span className={stylesButton.icon}>
+                        <CgProfile size="18" />
+                    </span>
                 </button>
+                <div className={styles.changeType}>
+                    <button onClick={() => setTypeForm(isReg ? 'login' : 'register')}>
+                        I want {isReg ? 'login' : 'register'}
+                    </button>
+                </div>
             </form>
         </Layout>
     )
