@@ -4,12 +4,14 @@ import { sanityClient } from '../../../app/sanity';
 
 const options: NextAuthOptions = {
   providers: [
+    // @ts-ignore
     SanityCredentials(sanityClient)
   ],
   session: {
     strategy: 'jwt'
   },
   secret: 'any-secret-word',
+  // @ts-ignore
   adapter: SanityAdapter(sanityClient)
 };
 

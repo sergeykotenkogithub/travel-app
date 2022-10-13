@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton'
 import { IPlace } from '@/types/place'
 import styles from './PopularPlaces.module.scss'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { urlFor } from 'sanity'
+import { urlFor } from '../../../../sanity'
 
 interface IPoppularPlaces {
     places: IPlace[]
