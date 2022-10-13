@@ -21,7 +21,7 @@ const navItems: TypeNavItem[] = [
   },
   {
     icon: 'person_outline',
-    link: '/profile'
+    link: '/auth'
   },
 
 ]
