@@ -14,7 +14,7 @@ const Information: FC<{ place: IPlace }> = ({ place }) => (
 
     </div>
 
-    <p>{<PortableText value={place.description} />}</p>
+    <article>{<PortableText value={place.description} />}</article>
 
     <div className={styles.additional}>
       <div className={styles.rating}>
