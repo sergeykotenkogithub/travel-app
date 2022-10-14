@@ -282,12 +282,21 @@
     object-assign "^4.1.1"
     rxjs "^6.5.3"
 
+"@sanity/react-hooks@^2.34.0":
+  version "2.34.0"
+  resolved "https://registry.yarnpkg.com/@sanity/react-hooks/-/react-hooks-2.34.0.tgz#db04547edb36013dcb27c5f95d4222759d9ab72a"
+  integrity sha512-yBDq0zXPry1Oq9f9e1d5bWwd9gai1zvpz07IZf+yiL/g7fYh9LivdY/zJy7hAMSWunNFh6QGWtxxfpYaswcg+g==
+  dependencies:
+    "@sanity/types" "2.34.0"
+    react-rx "^1.0.0-beta.6"
+    rxjs "^6.5.3"
+
 "@sanity/timed-out@^4.0.2":
   version "4.0.2"
   resolved "https://registry.npmjs.org/@sanity/timed-out/-/timed-out-4.0.2.tgz"
   integrity sha512-NBDKGj14g9Z+bopIvZcQKWCzJq5JSrdmzRR1CS+iyA3Gm8SnIWBfZa7I3mTg2X6Nu8LQXG0EPKXdOGozLS4i3w==
 
-"@sanity/types@^2.0.1":
+"@sanity/types@2.34.0", "@sanity/types@^2.0.1":
   version "2.34.0"
   resolved "https://registry.npmjs.org/@sanity/types/-/types-2.34.0.tgz"
   integrity sha512-fNdrJSt0lQ7dfPu6bXmuqwWbl9mzfQtKHqWKsU6z2Dk6RuTZXF+EVTmpRHCHdbb5B2Hw9pocc/iReXtkAdQJsg==
@@ -2382,6 +2391,11 @@ object.values@^1.1.5:
     define-properties "^1.1.3"
     es-abstract "^1.19.1"
 
+observable-callback@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/observable-callback/-/observable-callback-1.0.2.tgz#6ec5a0d7184eb484e1f8f157e645676b034aa75b"
+  integrity sha512-Fb7qVUHqr8jl32NyJffTiqf76NObRvmzaSPgGtaAGH+Wfh45tiGWjrvUsNgEuCa86SUzGZZpoSN0hpGtldoSDg==
+
 oidc-token-hash@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/oidc-token-hash/-/oidc-token-hash-5.0.1.tgz"
@@ -2628,6 +2642,13 @@ react-loading-skeleton@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/react-loading-skeleton/-/react-loading-skeleton-3.1.0.tgz"
   integrity sha512-j1U1CWWs68nBPOg7tkQqnlFcAMFF6oEK6MgqAo15f8A5p7mjH6xyKn2gHbkcimpwfO0VQXqxAswnSYVr8lWzjw==
+
+react-rx@^1.0.0-beta.6:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-rx/-/react-rx-1.0.1.tgz#3b0eca34a6eb0088666ecb39cdd26a283d576fd1"
+  integrity sha512-ywhmYW5gGN2X2zb5NHleOJotjmAcPD55IATKas9ZhErGnAjG/hfGWOpVZIP4QN08fb1HixKwpSLQOZnMQRk0xQ==
+  dependencies:
+    observable-callback "^1.0.1"
 
 react-simple-maps@^3.0.0:
   version "3.0.0"

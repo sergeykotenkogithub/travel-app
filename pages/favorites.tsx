@@ -17,5 +17,6 @@ export const getStaticProps: GetStaticProps = async () => {
     }
 }
 
+FavoritesPage.isOnlyUser = true
 
 export default FavoritesPage
