@@ -4,7 +4,7 @@
     border-radius: 15px;
     padding: 1.5rem;
     width: 80%;
-    margin: 3rem auto 0;
+    margin: 2rem auto 0;
     @include glassEffect;
 
     .map {
@@ -16,7 +16,7 @@
     .heading {
         display: flex;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
 
         >h1 {
             color: $white;
@@ -29,7 +29,8 @@
     >article {
         color: $white;
         opacity: 0.8;
-        line-height: 1.66;
+        line-height: 1.6;
+        font-size: .9 rem;
     }
 
     .additional {

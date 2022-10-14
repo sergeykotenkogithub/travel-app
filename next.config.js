@@ -16,6 +16,9 @@ const nextConfig = {
     SANITY_API_TOKEN: ''
    },
    rewrites: () => [STUDIO_REWRITE],
+   images: {
+    domains: ['cdn.sanity.io']
+   }
 }
 
 module.exports = nextConfig
