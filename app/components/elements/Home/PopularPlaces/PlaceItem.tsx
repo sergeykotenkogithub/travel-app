@@ -4,6 +4,7 @@ import React, { FC } from 'react'
 import styles from './PopularPlaces.module.scss'
 import { urlFor } from '../../../../sanity'
 import { MouseEvent } from 'react'
+import { MdDelete, MdDeleteOutline } from 'react-icons/md'
 
 const PlaceItem: FC<{ place: IPlace, removeHandler?: (e: MouseEvent<HTMLButtonElement>) => void }> = ({ place, removeHandler }) => {
     return (
@@ -16,7 +17,7 @@ const PlaceItem: FC<{ place: IPlace, removeHandler?: (e: MouseEvent<HTMLButtonEl
                     {`${place.location.city}, ${place.location.country}`}
                 </span>
                 {removeHandler && <button onClick={removeHandler}>
-                    <span className='material-icons-outlined'>delete</span>
+                    <MdDeleteOutline size={18} />
                 </button>}
             </a>
         </Link>

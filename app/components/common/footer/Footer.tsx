@@ -1,28 +1,32 @@
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
+import { IconType } from 'react-icons'
+import { MdHome, MdOutlineFavorite, MdAccountCircle, MdLogout } from 'react-icons/md'
 import styles from './Footer.module.scss'
+import { memo } from 'react'
+
 
 type TypeNavItem = {
-  icon: string,
+  icon: IconType,
   link: string
 }
 
 const navItems: TypeNavItem[] = [
   {
-    icon: 'home',
+    icon: MdHome,
     link: '/'
   },
   {
-    icon: 'favorite_outline',
+    icon: MdOutlineFavorite,
     link: '/favorites'
   },
   {
-    icon: 'account_circle',
+    icon: MdAccountCircle,
     link: '/profile'
   },
   {
-    icon: 'logout',
+    icon: MdLogout,
     link: '/auth'
   },
 
@@ -43,11 +47,9 @@ const Footer = () => {
             onClick={async () => {
               item.link === '/auth' ? await signOut() : await push(item.link)
             }}
-            key={item.icon}
+            key={item.link}
           >
-            <span className="material-icons-outlined">
-              {item.icon}
-            </span>
+            <item.icon />
           </button>
         )) :
 
@@ -64,4 +66,4 @@ const Footer = () => {
     </footer>
   )
 }
-export default Footer
+export default memo(Footer)
