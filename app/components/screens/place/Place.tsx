@@ -29,6 +29,7 @@ const Place: FC<IPlacePage> = ({ place }) => {
                         width={380} height={240}
                         layout='responsive'
                         priority
+                        alt='place'
                     />
                 </div>
                 <Information place={place} />

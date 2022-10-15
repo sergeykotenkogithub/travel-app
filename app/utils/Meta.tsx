@@ -12,10 +12,11 @@ interface IMeta {
 const Meta: FC<IMeta> = ({ title, description, image }) => {
     const { asPath } = useRouter()
     const currentUrl = `${process.env.APP_URL}${asPath}`
+    title = `${title} | Travel App`
 
     return (
         <Head>
-            <title itemProp='headline'>{title} | Travel App</title>
+            <title itemProp='headline'>{title}</title>
             {description ? (
                 <>
                     <meta

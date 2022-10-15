@@ -10,7 +10,7 @@ type Props = {
 const Layout: FC<Props> = ({ children, isMaxWidth = true }) => {
     return (
         <div>
-            <div style={{ maxWidth: isMaxWidth && 480, margin: '0 auto' }}>
+            <div style={{ maxWidth: isMaxWidth ? 480 : null, margin: '0 auto' }}>
                 {children}
             </div>
             <Footer />

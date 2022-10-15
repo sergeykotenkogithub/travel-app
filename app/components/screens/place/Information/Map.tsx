@@ -26,8 +26,8 @@ const Map: FC<{ location: TypeLocation }> = ({ location }) => {
                     <Geographies geography={geoUrl}>
                         {({ geographies }) =>
                             geographies.map(geo => {
-                                const isCurrent = geo.properties.name === location.country
-
+                                const isCurrent = geo.properties.name === location.country ||
+                                    geo.id === location.country
                                 return (
                                     <Geography
                                         key={geo.rsmKey}
